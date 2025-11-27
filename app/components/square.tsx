@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Square({value, className, onSquareClick}: {onSquareClick: any, value: string, className?: string}){
+export default function Square({value, className, onSquareClick}: {onSquareClick: any, value: string | null, className?: string}){
     
 
     return(

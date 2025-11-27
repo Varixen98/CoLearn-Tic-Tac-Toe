@@ -18,7 +18,7 @@ export default function Home() {
     setXisNext(!xIsNext);
   }
 
-  function jumpTo(nextMove){
+  function jumpTo(nextMove : number){
     setCurrentMove(nextMove);
     setXisNext(nextMove % 2 == 0)
   }

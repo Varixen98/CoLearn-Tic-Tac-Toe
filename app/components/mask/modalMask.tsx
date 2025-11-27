@@ -1,5 +1,5 @@
 
-export default function MyMask({isOpen, winner, onClose, value}){
+export default function MyMask({isOpen, winner, onClose, value}: {value: string|null, onClose: ()=>void, winner: string|null, isOpen: boolean}){
 
     if (!winner || !isOpen){
         return null

@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import Square from "./square";
 import MyMask from "./mask/modalMask";
 
-export default function MyBoard({xIsNext, squares, onPlay}){
+
+export default function MyBoard({xIsNext, squares, onPlay}: {xIsNext: boolean, squares: (string | null)[], onPlay: (nesxtSquares:any[])=> void}){
 
     const [isModalOpen, setModalOpen] = useState(false);
 
     // fungsi untuk mengecek apakah ada
     // kombinasi index array yang menghasilkan kemenangan
-    function declareWinner(squares:any){
+    function declareWinner(squares: (string | null)[]){
         const lines = [
             [0, 1, 2],
             [3, 4, 5],
@@ -49,7 +50,7 @@ export default function MyBoard({xIsNext, squares, onPlay}){
     }, [winner])
 
 
-    function handleClick(i:any){
+    function handleClick(i: number){
         if(squares[i] || declareWinner(squares)){
             return;
         }
