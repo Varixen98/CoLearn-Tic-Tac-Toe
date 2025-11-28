@@ -5,9 +5,10 @@ import MyMask from "./mask/modalMask";
 
 export default function MyBoard({xIsNext, squares, onPlay}: {xIsNext: boolean, squares: (string | null)[], onPlay: (nesxtSquares:any[])=> void}){
 
+    
     const [isModalOpen, setModalOpen] = useState(false);
 
-    // fungsi untuk mengecek apakah ada
+    // fungsi untuk mengecek apakah ada square value mempunyai
     // kombinasi index array yang menghasilkan kemenangan
     function declareWinner(squares: (string | null)[]){
         const lines = [
@@ -31,6 +32,9 @@ export default function MyBoard({xIsNext, squares, onPlay}: {xIsNext: boolean, s
         return null;
     }
 
+    // mengprint status game berdasarkan history game
+    //jika terdapat tiga square dengan value yang sama
+    // maka akan mengprint nilai value square dari index ke a
     const winner = declareWinner(squares);
     let status;
     if(winner){
@@ -39,6 +43,7 @@ export default function MyBoard({xIsNext, squares, onPlay}: {xIsNext: boolean, s
     else{
         status = 'Next player: ' + (xIsNext ? 'X' : 'O');
     }
+
 
     useEffect(() => {
         if(winner){
@@ -50,6 +55,8 @@ export default function MyBoard({xIsNext, squares, onPlay}: {xIsNext: boolean, s
     }, [winner])
 
 
+    // mengatur siapay yang bisa mengklik button dan value yang diberikan
+    // ke square button pada saat di klik.
     function handleClick(i: number){
         if(squares[i] || declareWinner(squares)){
             return;
@@ -66,9 +73,10 @@ export default function MyBoard({xIsNext, squares, onPlay}: {xIsNext: boolean, s
         onPlay(nextSquares)
     }
 
+
+    // menutup modal mask jika
     function closeModal(){
         setModalOpen(false)
-        console.log('Modal Closed')
     }
 
 

@@ -1,13 +1,14 @@
 
 export default function MyMask({isOpen, winner, onClose, value}: {value: string|null, onClose: ()=>void, winner: string|null, isOpen: boolean}){
 
+    // modal mask muncul ketika terdapat winner
     if (!winner || !isOpen){
         return null
     }
 
     return(
         <div id="modal-mask" className="fixed inset-0 flex items-center justify-center min-w-screen min-h-screen z-50 bg-black/50">
-            <div id="content-mask" className="w-[500px] h-fit relativ bg-white flex flex-col rounded-lg shadow-lg p-2">
+            <div id="content-mask" className="w-[300px] h-fit relativ bg-white flex flex-col rounded-lg shadow-lg p-2">
                 <div className="w-full p-1 flex items-center justify-center">
                     <h2 className="font-bold text-2xl">Congratulation</h2>
                 </div>
